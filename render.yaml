@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: cez-market-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: BACKEND_URL
+        sync: false # Akan diisi otomatis setelah dapat URL render
+      - key: RIZPRO_BASE_URL
+        value: https://www.rizprostore.my.id
+      - key: RIZPRO_PRODUCT_ID
+        value: gemini
+      - key: RIZPRO_VARIANT_NAME
+        value: AKUN PRIVAT
+      - key: HARGA_JUAL
+        value: 35000
+      - key: HARGA_KULAK
+        value: 25000
+      - key: TELEGRAM_CHAT_ID
+        value: "8311765503"
+      - key: TELEGRAM_BOT_TOKEN
+        value: "8685900115:AAGrAe78T_D87Q_1OSwPqI9ahpG78nIBFKU"
+      - key: TELEGRAM_BOT_PAYMENT_TOKEN
+        value: "8619896976:AAFkfHTHcx6EQSI695BFDucW0SP96e4kKDg"
+      - key: TELEGRAM_BOT_HISTORY_TOKEN
+        value: "8326705445:AAEiNoebqYDhnp7Lr5Ri4vR2FXFP0_IBO4M"
