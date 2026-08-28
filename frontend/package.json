@@ -1,0 +1,12 @@
+{
+  "name": "cez-market",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build OK'"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
