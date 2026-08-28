@@ -3,190 +3,285 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GeminiPro Store — Google AI Pro Jio 18 Bulan 100K</title>
+<title>GeminiPro Store — Akun Gemini Pro + Antigravity 18 Bulan</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  *{font-family:Inter,sans-serif}
+  *{font-family:'Plus Jakarta Sans',sans-serif}
   .mono{font-family:'JetBrains Mono',monospace}
-  .glass{backdrop-filter:blur(16px);background:rgba(255,255,255,0.85)}
-  .shimmer{background:linear-gradient(90deg,#f7d64a 0%,#ffe98a 50%,#f7d64a 100%);background-size:200% 100%;animation:shim 2s infinite}
-  @keyframes shim{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  .card-border{border:1px solid rgba(226,232,240,0.8)}
+  .btn-primary{background-color:#0066ff;color:#fff;transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
+  .btn-primary:hover{background-color:#0052cc;box-shadow:0 8px 20px -4px rgba(0,102,255,0.4)}
+  .btn-primary:active{transform:scale(0.98)}
 </style>
 </head>
-<body class="bg-[#fbf8e8] text-zinc-900 antialiased">
-<!-- NAV -->
-<nav class="sticky top-0 z-50 glass border-b border-zinc-200/50">
-  <div class="max-w-[1120px] mx-auto px-4 sm:px-6 h-[60px] flex items-center justify-between">
+<body class="bg-[#f0f4f9] text-slate-800 antialiased min-h-screen">
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-xl bg-zinc-900 flex items-center justify-center text-white font-extrabold text-[16px]">G</div>
+      <div class="w-10 h-10 rounded-xl bg-[#0066ff] text-white font-extrabold text-[20px] flex items-center justify-center shadow-md shadow-blue-500/20">
+        G
+      </div>
       <div>
-        <div class="font-extrabold leading-none text-[15px]">GeminiPro Store</div>
-        <div class="text-[11px] tracking-widest text-zinc-500 font-semibold">BY ISAGI • JIO PARTNER</div>
-      </div>
-      <span class="hidden sm:inline-flex ml-2 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-bold gap-1 items-center">● AUTO 24 JAM</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <a id="cekBtn" href="#cek" class="hidden sm:inline-flex text-[13px] font-semibold px-4 py-2 rounded-full border border-zinc-200 hover:bg-white">Cek Pesanan</a>
-      <a href="https://wa.me/6281234567890" target="_blank" class="text-[13px] font-bold bg-zinc-900 text-white px-4 py-2 rounded-full hover:bg-black">CS WhatsApp</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="max-w-[1120px] mx-auto px-4 sm:px-6 pt-8 pb-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-6">
-
-  <!-- LEFT: Product -->
-  <div>
-    <div class="inline-flex items-center gap-2 bg-white border border-zinc-200 rounded-full px-3 py-1.5 text-[12px] font-semibold shadow-sm">
-      <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> 127 orang beli hari ini • sisa stok fresh 18
-    </div>
-
-    <h1 class="mt-4 text-[32px] sm:text-[42px] font-extrabold leading-[0.95] tracking-tight">
-      Google AI Pro<br>
-      <span class="bg-yellow-300 px-2 rounded-lg">Jio 18 Bulan</span>
-    </h1>
-    <p class="mt-3 text-zinc-600 text-[14px] sm:text-[15px] leading-relaxed">Gemini Advanced + Veo 3 + 2TB Drive + NotebookLM Pro.<br>Link aktivasi <b>serviceactivation.google.com</b> fresh — garansi 18 bulan.</p>
-
-    <!-- Price card -->
-      <div class="mt-4 p-5 bg-white border border-zinc-200/80 rounded-2xl shadow-sm">
-        <div class="flex items-baseline justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Harga Promo</div>
-            <div class="flex items-baseline gap-2">
-              <span class="text-[32px] sm:text-[36px] font-extrabold tracking-tight">Rp 35.000</span>
-              <span class="text-[14px] text-zinc-400 line-through">Rp 100.000</span>
-            </div>
-            <div class="mt-0.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold">
-              <span>HEMAT RP 65.000</span>
-              <span class="text-emerald-500 font-normal">vs harga normal</span>
-            </div>
-          </div>
-          <div class="text-right">
-            <div class="text-[11px] text-zinc-400 font-medium">Estimasi</div>
-            <div class="text-[14px] font-bold text-zinc-800">1–3 Menit ⚡</div>
-            <div class="text-[11px] text-emerald-600 font-semibold">QRIS Instant</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Features grid -->
-      <div class="mt-5 grid grid-cols-2 gap-3">
-        <div class="flex gap-2.5 items-start bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <div class="w-8 h-8 rounded-lg bg-white border flex items-center justify-center shrink-0">✦</div>
-          <div><div class="text-[13px] font-bold leading-none">Gemini Advanced</div><div class="text-[12px] text-zinc-500">2.5 Pro unlimited</div></div>
-        </div>
-        <div class="flex gap-2.5 items-start bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <div class="w-8 h-8 rounded-lg bg-white border flex items-center justify-center shrink-0">🎬</div>
-          <div><div class="text-[13px] font-bold leading-none">Veo 3</div><div class="text-[12px] text-zinc-500">Generate video AI</div></div>
-        </div>
-        <div class="flex gap-2.5 items-start bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <div class="w-8 h-8 rounded-lg bg-white border flex items-center justify-center shrink-0">☁️</div>
-          <div><div class="text-[13px] font-bold leading-none">2TB Drive</div><div class="text-[12px] text-zinc-500">Google One 18 bln</div></div>
-        </div>
-        <div class="flex gap-2.5 items-start bg-zinc-50 rounded-xl p-3 border border-zinc-100">
-          <div class="w-8 h-8 rounded-lg bg-white border flex items-center justify-center shrink-0">📓</div>
-          <div><div class="text-[13px] font-bold leading-none">NotebookLM Pro</div><div class="text-[12px] text-zinc-500">Research AI</div></div>
-        </div>
-      </div>
-
-      <div class="mt-4 flex items-center gap-2 text-[12px] text-zinc-600">
-        <span class="px-2 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-full font-bold">✓ Garansi link fresh</span>
-        <span class="px-2 py-1 bg-white border rounded-full font-semibold">✓ Panduan aktivasi</span>
-        <span class="px-2 py-1 bg-white border rounded-full font-semibold">✓ Support WA</span>
+        <div class="font-extrabold text-[16px] text-slate-900 leading-tight">GeminiPro Store</div>
+        <div class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">BY ISAGI • JIO PARTNER</div>
       </div>
     </div>
-
-    <!-- How it works -->
-    <div class="mt-4 bg-zinc-900 text-white rounded-2xl p-4 flex gap-3 items-center">
-      <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">⚙️</div>
-      <div class="text-[13px] leading-tight"><b>Flow Opsi A — Auto Dropship:</b> Kamu bayar QRIS di web ini → sistem auto belanja ke RizProStore → link aktivasi Google kekirim otomatis. Kami yang talangin bayar kulak.</div>
+    <div class="flex items-center gap-2.5">
+      <button onclick="document.getElementById('checkModal').classList.remove('hidden')" class="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-[13px] transition shadow-sm">
+        Cek Pesanan
+      </button>
+      <a href="https://wa.me/6285881705459" target="_blank" class="px-4 py-2 rounded-xl bg-[#0066ff] text-white font-semibold text-[13px] hover:bg-[#0052cc] transition shadow-sm shadow-blue-500/20 flex items-center gap-1.5">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
     </div>
   </div>
+</header>
 
-  <!-- RIGHT: Checkout -->
-  <div class="lg:sticky lg:top-[76px] h-fit">
-    <div class="bg-white rounded-[20px] border border-zinc-200 shadow-[0_12px_32px_rgba(0,0,0,0.08)] overflow-hidden">
-      <div class="bg-zinc-900 text-white px-5 py-4 flex items-center justify-between">
-        <div class="font-extrabold text-[15px]">Checkout • QRIS Instant</div>
-        <div class="text-[11px] bg-white/15 px-2.5 py-1 rounded-full font-bold tracking-wide">ORDER #AUTO</div>
-      </div>
+<!-- MAIN CONTAINER -->
+<main class="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- LEFT COLUMN -->
+    <div class="lg:col-span-7 space-y-6">
+      
+      <!-- HERO CARD -->
+      <div class="relative bg-white rounded-3xl p-6 sm:p-8 card-border shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden">
+        <!-- Antigravity Decorative Graphic -->
+        <div class="absolute right-4 top-4 sm:right-6 sm:top-6 w-36 h-36 sm:w-48 sm:h-48 pointer-events-none select-none opacity-90">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <path d="M100 20C100 20 120 70 140 90C160 110 180 140 160 170C140 200 60 200 40 170C20 140 40 110 60 90C80 70 100 20 100 20Z" fill="#e8f0fe"/>
+            <path d="M100 40C100 40 115 80 130 95C145 110 160 135 145 155C130 175 70 175 55 155C40 135 55 110 70 95C85 80 100 40 100 40Z" stroke="#0066ff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="50" r="4" fill="#0066ff"/>
+            <circle cx="160" cy="70" r="3" fill="#0066ff"/>
+          </svg>
+        </div>
 
-      <div class="p-5">
-        <!-- Form -->
-        <div id="formBox">
-          <label class="text-[12px] font-bold tracking-wide text-zinc-700">NO WHATSAPP *</label>
-          <input id="wa" placeholder="0812xxxxxxx" class="mt-1.5 w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-900 outline-none text-[15px] font-medium" inputmode="numeric">
-          <p class="text-[11px] text-zinc-500 mt-1">Link aktivasi + bukti akan dikirim ke WA ini</p>
+        <div class="relative z-10 max-w-[440px]">
+          <h1 class="text-[28px] sm:text-[34px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            Akun Gemini Pro + Antigravity <span class="text-[#0066ff]">18 Bulan</span>
+          </h1>
+          <p class="mt-3 text-slate-500 text-[14px] leading-relaxed">
+            Dapatkan akses penuh Gemini Advanced, Veo 3, Antigravity, dan NotebookLM Pro selama 18 bulan.
+          </p>
+        </div>
 
-          <label class="text-[12px] font-bold tracking-wide text-zinc-700 mt-4 block">EMAIL (OPSIONAL)</label>
-          <input id="email" placeholder="kamu@gmail.com (buat invoice)" class="mt-1.5 w-full px-4 py-3.5 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:border-zinc-900 outline-none text-[15px]">
-          
-          <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 flex gap-2.5">
-            <div class="text-[16px]">💡</div>
-            <div class="text-[12px] leading-relaxed text-amber-900"><b>Tips isagi:</b> pakai WA yang aktif ya. Kalau email kosong, kami pakai <span class="mono bg-white px-1 rounded border">order-xxx@store.id</span></div>
+        <!-- PRICING BOX -->
+        <div class="mt-6 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm relative z-10">
+          <div class="flex items-baseline justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">HARGA PROMO</div>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="text-[32px] sm:text-[36px] font-black text-[#0066ff] tracking-tight">Rp 75.000</span>
+                <span class="text-[15px] text-slate-400 line-through font-semibold">Rp 100.000</span>
+              </div>
+              <div class="mt-1 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-[#0066ff] text-[11px] font-bold">
+                <span>HEMAT Rp 25.000</span>
+                <span class="text-slate-400 font-normal">vs harga normal 18 bulan</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-[11px] text-slate-400 font-bold tracking-wider uppercase">ESTIMASI</div>
+              <div class="text-[15px] font-extrabold text-slate-800 mt-0.5">1–3 Menit ⚡</div>
+              <div class="text-[11px] text-emerald-600 font-bold">QRIS Instant</div>
+            </div>
           </div>
 
-          <button id="buyBtn" onclick="order()" class="mt-5 w-full shimmer text-zinc-900 font-extrabold text-[15px] py-4 rounded-xl border border-yellow-400 shadow-[0_6px_16px_rgba(247,214,74,0.5)] hover:brightness-[0.98] active:scale-[0.99] transition">
-            Beli Sekarang — Rp 100.000 ⚡
+          <!-- FEATURES GRID -->
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-100 text-[#0066ff] flex items-center justify-center text-[18px]">
+                ✦
+              </div>
+              <div>
+                <div class="text-[13px] font-bold text-slate-800">Gemini Advanced</div>
+                <div class="text-[11px] text-slate-500">2.5 Pro unlimited</div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-100 text-[#0066ff] flex items-center justify-center text-[18px]">
+                🎬
+              </div>
+              <div>
+                <div class="text-[13px] font-bold text-slate-800">Veo 3</div>
+                <div class="text-[11px] text-slate-500">Generate video AI</div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-100 text-[#0066ff] flex items-center justify-center text-[18px]">
+                <svg class="w-5 h-5 fill-current text-[#0066ff]" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z"/></svg>
+              </div>
+              <div>
+                <div class="text-[13px] font-bold text-slate-800">Antigravity</div>
+                <div class="text-[11px] text-slate-500">Akses penuh tools</div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-blue-100 text-[#0066ff] flex items-center justify-center text-[18px]">
+                📓
+              </div>
+              <div>
+                <div class="text-[13px] font-bold text-slate-800">NotebookLM Pro</div>
+                <div class="text-[11px] text-slate-500">Research AI</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BADGES -->
+          <div class="mt-4 flex flex-wrap gap-2 text-[12px]">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-[#0066ff] font-semibold">
+              ✓ Garansi 18 bulan
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-[#0066ff] font-semibold">
+              ✓ Panduan aktivasi
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-[#0066ff] font-semibold">
+              ✓ Support WA
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW PEMESANAN -->
+      <div class="bg-white rounded-3xl p-6 card-border shadow-sm">
+        <h3 class="text-[14px] font-extrabold text-[#0066ff] mb-4">Flow Pemesanan</h3>
+        <div class="grid grid-cols-3 gap-2 text-center items-center">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 text-[20px]">
+              🛒
+            </div>
+            <div class="mt-2 text-[13px] font-bold text-slate-800">1. Order</div>
+            <div class="text-[11px] text-slate-400">Lengkapi data pemesanan</div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 text-[20px]">
+              ✈️
+            </div>
+            <div class="mt-2 text-[13px] font-bold text-slate-800">2. Proses</div>
+            <div class="text-[11px] text-slate-400">Kami proses secepatnya</div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 text-[20px]">
+              ✓
+            </div>
+            <div class="mt-2 text-[13px] font-bold text-slate-800">3. Aktivasi</div>
+            <div class="text-[11px] text-slate-400">Akun siap digunakan</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: CHECKOUT FORM & REVIEWS -->
+    <div class="lg:col-span-5 space-y-6">
+      
+      <!-- CHECKOUT CARD -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 card-border shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div class="font-extrabold text-[16px] text-[#0066ff]">Checkout • QRIS Instant</div>
+          <span class="text-[11px] font-bold tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-[#0066ff]">ORDER #AUTO</span>
+        </div>
+
+        <div class="mt-5" id="formBox">
+          <label class="text-[11px] font-extrabold text-slate-600 tracking-wider uppercase">NO WHATSAPP *</label>
+          <div class="relative mt-1.5">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-emerald-500">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+            <input id="wa" value="085881705459" placeholder="0812xxxxxxx" class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-[#0066ff] outline-none text-[15px] font-semibold text-slate-800 transition" inputmode="numeric">
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">Link aktivasi + bukti akan dikirim ke WA ini</p>
+
+          <label class="text-[11px] font-extrabold text-slate-600 tracking-wider uppercase mt-4 block">EMAIL (OPSIONAL)</label>
+          <div class="relative mt-1.5">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              ✉️
+            </div>
+            <input id="email" placeholder="kamu@gmail.com (buat invoice)" class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-[#0066ff] outline-none text-[14px] text-slate-800 transition">
+          </div>
+
+          <div class="mt-4 p-3.5 rounded-xl bg-blue-50/70 border border-blue-100 flex gap-2.5 items-start">
+            <div class="text-[#0066ff] text-[15px] font-bold">ℹ️</div>
+            <div class="text-[12px] text-slate-600 leading-relaxed">
+              <b>Tips isagi:</b> pakai WA yang aktif ya. Kalau email kosong, kami pakai <span class="mono text-[#0066ff] bg-white px-1.5 py-0.5 rounded border border-blue-200">order-xxx@store.id</span>
+            </div>
+          </div>
+
+          <button id="buyBtn" onclick="order()" class="mt-5 w-full py-4 rounded-xl btn-primary font-extrabold text-[15px] flex items-center justify-center gap-2">
+            <span>Beli Sekarang — Rp 75.000</span>
+            <span>⚡</span>
           </button>
-          <div class="mt-2 text-center text-[11px] text-zinc-500">🔒 Pembayaran aman QRIS Tripay • Expired 30 menit</div>
 
-          <div class="mt-4 flex items-center justify-center gap-3 text-[11px] font-bold text-zinc-400">
-            <span>QRIS</span>•<span>DANA</span>•<span>OVO</span>•<span>GoPay</span>•<span>ShopeePay</span>•<span>mBanking</span>
+          <div class="mt-4 text-center">
+            <div class="text-[11px] text-slate-400 flex items-center justify-center gap-1 font-medium">
+              🔒 Pembayaran aman QRIS Tripay • Expired 30 menit
+            </div>
+            <div class="mt-2 text-[11px] text-slate-400 font-semibold flex items-center justify-center gap-2">
+              <span>QRIS</span> • <span>DANA</span> • <span>OVO</span> • <span>GoPay</span> • <span>ShopeePay</span> • <span>mBanking</span>
+            </div>
           </div>
         </div>
 
-        <!-- Result / Polling -->
+        <!-- OUT / PAYMENT STATE -->
         <div id="out" class="hidden"></div>
+
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-500">
+          <div class="flex items-center gap-1">
+            <span class="text-blue-500">🛡️</span> 892 transaksi sukses
+          </div>
+          <div class="flex items-center gap-1 text-amber-500">
+            ★ 4.9/5 (312 ulasan)
+          </div>
+          <div class="flex items-center gap-1.5 text-emerald-600">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Online
+          </div>
+        </div>
       </div>
 
-      <!-- Trust footer -->
-      <div class="px-5 py-3 bg-zinc-50 border-t text-[11px] text-zinc-500 flex items-center justify-between">
-        <span>🛡️ 892 transaksi sukses</span>
-        <span>⭐ 4.9/5 (312 ulasan)</span>
-        <span>🕒 Online</span>
+      <!-- ULASAN PEMBELI -->
+      <div class="bg-white rounded-3xl p-6 card-border shadow-sm">
+        <h3 class="text-[13px] font-extrabold text-slate-800 uppercase tracking-wider mb-4">Ulasan Pembeli</h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-[#0066ff] font-bold flex items-center justify-center text-[14px]">
+              👤
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <div class="text-[13px] font-bold text-slate-800">Rizky • <span class="text-slate-400 font-normal">2j lalu</span></div>
+                <div class="text-amber-400 text-[12px]">★★★★★</div>
+              </div>
+              <p class="text-[12px] text-slate-600 mt-1">"Link langsung jadi, Veo 3 jalan. 2 menit kelar mantap isagi!"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 pt-3 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-[#0066ff] font-bold flex items-center justify-center text-[14px]">
+              👤
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <div class="text-[13px] font-bold text-slate-800">Amanda • <span class="text-slate-400 font-normal">5j lalu</span></div>
+                <div class="text-amber-400 text-[12px]">★★★★★</div>
+              </div>
+              <p class="text-[12px] text-slate-600 mt-1">"QRIS instant, ga ribet. Udah 18 bulan aktif!"</p>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <!-- Testimoni mini -->
-    <div class="mt-4 bg-white rounded-2xl border p-4">
-      <div class="text-[12px] font-extrabold tracking-wide">ULASAN PEMBELI</div>
-      <div class="mt-2 space-y-2 text-[13px]">
-        <div class="bg-zinc-50 rounded-xl p-3 border"><b>Rizky • 2j lalu</b><br><span class="text-zinc-600">“Link langsung jadi, Veo 3 jalan. 2 menit kelar mantap isagi”</span></div>
-        <div class="bg-zinc-50 rounded-xl p-3 border"><b>Amanda • 5j lalu</b><br><span class="text-zinc-600">“QRIS instant, ga ribet. Udah 18 bulan aktif”</span></div>
-      </div>
-    </div>
   </div>
-</div>
-
-<!-- CEK PESANAN -->
-<div id="cek" class="max-w-[1120px] mx-auto px-4 sm:px-6 pb-10">
-  <div class="bg-white rounded-2xl border p-5">
-    <div class="flex items-center justify-between">
-      <h3 class="font-extrabold">Cek Pesanan</h3>
-      <span class="text-[11px] bg-zinc-100 border px-2 py-1 rounded-full font-bold">POLLING AUTO</span>
-    </div>
-    <div class="mt-3 flex gap-2">
-      <input id="cekId" placeholder="Masukkan Order ID (ORD-...)" class="flex-1 px-4 py-3 rounded-xl border bg-zinc-50 focus:bg-white outline-none mono text-[13px]">
-      <button onclick="cekOrder()" class="px-5 py-3 rounded-xl bg-zinc-900 text-white font-bold text-[13px]">Cek</button>
-    </div>
-    <div id="cekOut" class="mt-3 text-[13px]"></div>
-  </div>
-
-  <div class="mt-6 grid sm:grid-cols-3 gap-3 text-[13px]">
-    <div class="bg-white border rounded-2xl p-4"><div class="font-extrabold">1. Bayar QRIS</div><div class="text-zinc-600">Scan QRIS Tripay di web ini (punya lu) — 30 detik konfirmasi.</div></div>
-    <div class="bg-white border rounded-2xl p-4"><div class="font-extrabold">2. Bot Auto Belanja</div><div class="text-zinc-600">Backend auto order ke RizProStore, ambil QR kulak & bayar (semi-auto via Telegram lu).</div></div>
-    <div class="bg-white border rounded-2xl p-4"><div class="font-extrabold">3. Link Dikirim</div><div class="text-zinc-600">Link <span class="mono text-[12px]">serviceactivation.google.com</span> fresh muncul otomatis + dikirim WA.</div></div>
-  </div>
-</div>
-
-<footer class="border-t bg-white mt-6">
-  <div class="max-w-[1120px] mx-auto px-4 sm:px-6 py-6 text-[12px] text-zinc-500 flex flex-col sm:flex-row justify-between gap-2">
-    <span>© 2026 GeminiPro Store by isagi — bukan afiliasi Google. Jio promo India 18-25.</span>
-    <span>Butuh bantuan? <a href="https://wa.me/6281234567890" class="underline font-bold text-zinc-700">Chat isagi</a></span>
-  </div>
-</footer>
+</main>
 
 <script>
 const API = window.location.origin;
@@ -199,171 +294,103 @@ async function order(){
   const btn = document.getElementById('buyBtn');
   btn.disabled = true; btn.innerText = 'Membuat pesanan...';
   document.getElementById('out').classList.remove('hidden');
-  document.getElementById('out').innerHTML = `<div class="py-6 text-center"><div class="w-8 h-8 border-4 border-zinc-200 border-t-zinc-900 rounded-full animate-spin mx-auto"></div><div class="mt-3 text-[13px] font-semibold">Memproses pesanan...</div><div class="text-[12px] text-zinc-500">Jangan tutup halaman</div></div>`;
+  document.getElementById('out').innerHTML = `<div class="py-8 text-center"><div class="w-9 h-9 border-4 border-slate-200 border-t-[#0066ff] rounded-full animate-spin mx-auto"></div><div class="mt-3 text-[14px] font-bold text-slate-800">Memproses Pesanan...</div><div class="text-[12px] text-slate-400 mt-0.5">Menyiapkan QRIS pembayaran</div></div>`;
+  
   try{
-    const res = await fetch(API + '/api/create-order', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({wa,email})});
+    const res = await fetch(API + '/api/create-order', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ wa, email })
+    });
     const j = await res.json();
-    if(!j.success && !j.order_id) throw new Error(j.error || 'Gagal create order');
-    const oid = j.order_id || j.tripay?.data?.merchant_ref;
-    const payUrl = j.pay_url || j.tripay?.data?.checkout_url;
-    const qr = j.qr_string || j.tripay?.data?.qr_string || j.tripay?.data?.qr_url;
-    renderWaiting(oid, payUrl, qr, j.amount || 35000);
+    if(!j.success && !j.order_id) throw new Error(j.error || 'Gagal membuat pesanan');
+    const oid = j.order_id;
+    const payUrl = j.pay_url;
+    const qr = j.qr_string;
+    renderWaiting(oid, payUrl, qr, j.amount || 75000);
     poll(oid);
   }catch(e){
-    document.getElementById('out').innerHTML = `<div class="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-[13px]">Gagal: ${e.message}<br><span class="text-zinc-600">Terjadi kesalahan, silakan coba lagi.</span></div>`;
+    document.getElementById('out').innerHTML = `<div class="bg-red-50 border border-red-200 text-red-700 rounded-2xl p-4 text-[13px]">Gagal: ${e.message}<br><span class="text-slate-500">Silakan coba lagi beberapa saat lagi.</span></div>`;
   }finally{
-    btn.disabled = false; btn.innerText = 'Beli Sekarang — Rp 35.000 ⚡';
+    btn.disabled = false; btn.innerText = 'Beli Sekarang — Rp 75.000 ⚡';
   }
 }
 
 function renderWaiting(oid, payUrl, qr, amount){
   const qrisImg = API + '/qris.jpeg';
-  const qrBox = `<div class="bg-white border rounded-xl p-3 text-center"><img src="${qrisImg}" alt="QRIS 35K" class="w-full max-w-[320px] mx-auto rounded-xl border" onerror="this.style.display='none'"><div class="mono bg-zinc-900 text-amber-300 rounded-xl p-3 text-[11px] break-all border mt-2">${qr||'QRIS_STATIS'}</div><div class="text-[12px] text-zinc-600 mt-2">Scan QRIS di atas & bayar <b>Rp ${Number(amount).toLocaleString('id-ID')}</b> persis dari e-wallet/mBanking</div></div>`;
+  const qrBox = `
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
+      <img src="${qrisImg}" alt="QRIS" class="w-full max-w-[280px] mx-auto rounded-xl border border-slate-200 shadow-sm" onerror="this.style.display='none'">
+      <div class="mono bg-slate-900 text-blue-300 rounded-xl p-3 text-[11px] break-all mt-3">${qr || 'QRIS_INSTANT'}</div>
+      <div class="text-[12px] text-slate-600 mt-2.5">Scan QRIS di atas & transfer persis <b>Rp ${Number(amount).toLocaleString('id-ID')}</b></div>
+    </div>
+  `;
   document.getElementById('formBox').classList.add('hidden');
   document.getElementById('out').innerHTML = `
-    <div class="text-center">
-      <div class="inline-flex px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-[12px] font-bold">● MENUNGGU PEMBAYARAN</div>
-      <div class="mt-2 font-extrabold mono text-[13px]">${oid}</div>
-      <div class="text-[12px] text-zinc-500">Total bayar — QRIS Statis</div>
-      <div class="text-[28px] font-extrabold">Rp ${Number(amount).toLocaleString('id-ID')}</div>
+    <div class="text-center pt-2">
+      <div class="inline-flex px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-extrabold tracking-wider">● MENUNGGU PEMBAYARAN</div>
+      <div class="mt-2 font-mono text-[14px] font-bold text-slate-800">${oid}</div>
+      <div class="text-[28px] font-black text-slate-900 mt-1">Rp ${Number(amount).toLocaleString('id-ID')}</div>
     </div>
     <div class="mt-4">${qrBox}</div>
-    <div class="mt-4 grid gap-2">
-      <button id="paidBtn" onclick="confirmPayment('${oid}')" class="w-full py-4 rounded-xl bg-[#f7d64a] border border-yellow-400 text-zinc-900 font-extrabold text-[15px] shadow-[0_6px_16px_rgba(247,214,74,0.4)] hover:brightness-95 active:scale-[0.99] transition">✅ Aku sudah bayar</button>
-      <div class="text-center text-[11px] text-zinc-500">Klik setelah kamu transfer — admin akan verifikasi 1-5 menit</div>
-      ${payUrl ? `<a href="${payUrl}" target="_blank" class="block text-center w-full py-3 rounded-xl bg-white border font-bold text-[13px]">Buka Halaman QRIS →</a>` : ``}
+    <div class="mt-4 space-y-2">
+      <button id="paidBtn" onclick="confirmPayment('${oid}')" class="w-full py-4 rounded-xl btn-primary font-extrabold text-[15px]">
+        ✅ Aku sudah bayar
+      </button>
+      <div class="text-center text-[11px] text-slate-400">Klik tombol di atas setelah transfer agar langsung diverifikasi</div>
     </div>
-    <div class="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-3 text-[12px] leading-relaxed">
-      <b>Cara bayar:</b> Buka e-wallet / mBanking → Scan QRIS → bayar <b>Rp ${Number(amount).toLocaleString('id-ID')}</b>.<br>Setelah bayar, klik tombol <b>"Aku sudah bayar"</b> di atas.
+    <div id="pollState" class="mt-4 flex items-center gap-2 justify-center text-[12px] font-semibold text-slate-600">
+      <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span> Menunggu konfirmasi pembayaran...
     </div>
-    <div id="pollState" class="mt-3 flex items-center gap-2 justify-center text-[12px] font-semibold text-zinc-600"><span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span> Menunggu kamu klik "Aku sudah bayar"...</div>
-    <button onclick="resetForm()" class="mt-3 w-full py-2.5 rounded-xl border bg-white font-bold text-[13px]">Batal / Buat order baru</button>
   `;
-  document.getElementById('cekId').value = oid;
 }
 
 async function confirmPayment(oid){
   const btn = document.getElementById('paidBtn');
-  if(btn){ btn.disabled=true; btn.innerText='⏳ Mengirim...'; }
+  if(btn){ btn.disabled = true; btn.innerText = 'Mengirim verifikasi...'; }
   try{
-    const r = await fetch(API + '/api/confirm-payment', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({orderId: oid})});
+    const r = await fetch(API + '/api/confirm-payment', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ orderId: oid })
+    });
     const j = await r.json();
-    if(!j.success) throw new Error(j.error||j.msg);
-    renderPending(oid);
+    if(btn){ btn.innerText = '✅ Verifikasi Terkirim'; }
+    document.getElementById('pollState').innerHTML = `<span class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></span> <b>Sedang diverifikasi admin.</b> Tunggu 1–3 menit...`;
   }catch(e){
-    alert('Gagal: '+e.message);
-    if(btn){ btn.disabled=false; btn.innerText='✅ Aku sudah bayar'; }
+    if(btn){ btn.disabled = false; btn.innerText = '✅ Aku sudah bayar'; }
+    alert('Gagal: ' + e.message);
   }
 }
 
-function renderPending(oid){
-  document.getElementById('formBox').classList.add('hidden');
-  document.getElementById('out').classList.remove('hidden');
-  document.getElementById('out').innerHTML = `
-    <div class="text-center py-2">
-      <div class="w-16 h-16 rounded-full bg-amber-100 border-2 border-amber-300 flex items-center justify-center mx-auto text-[28px]">⏳</div>
-      <div class="mt-3 inline-flex px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-800 text-[12px] font-extrabold">● MENUNGGU VERIFIKASI ADMIN</div>
-      <div class="mt-3 font-extrabold mono text-[13px]">${oid}</div>
-      <div class="mt-2 text-[14px] font-bold">Tunggu admin verif ya 🙏</div>
-      <div class="text-[12px] text-zinc-600 leading-relaxed mt-1">Kamu sudah klik "Aku sudah bayar".<br>Admin akan cek mutasi QRIS & verifikasi via Telegram.<br><span class="font-semibold">Estimasi 1–5 menit</span> — jangan tutup halaman.</div>
-      <div class="mt-4 bg-white border rounded-xl p-3 flex items-center gap-3 justify-center">
-        <div class="w-6 h-6 border-3 border-zinc-200 border-t-zinc-900 rounded-full animate-spin" style="border-width:3px"></div>
-        <div class="text-left"><div id="pollState" class="text-[12px] font-bold text-zinc-700">Menunggu admin verifikasi...</div><div class="text-[11px] text-zinc-500">Auto-refresh tiap 3 detik</div></div>
-      </div>
-      <div class="mt-3 flex gap-2 justify-center">
-        <a href="https://wa.me/6281234567890?text=Halo%20min,%20saya%20sudah%20bayar%20${encodeURIComponent(oid)}" target="_blank" class="px-4 py-2 rounded-full bg-emerald-500 text-white font-bold text-[12px]">💬 Chat Admin</a>
-        <button onclick="cekOrderManual('${oid}')" class="px-4 py-2 rounded-full border bg-white font-bold text-[12px]">🔄 Cek Status</button>
-      </div>
-      <button onclick="resetForm()" class="mt-4 w-full py-2.5 rounded-xl border bg-white font-bold text-[13px]">Buat order baru</button>
-    </div>
-  `;
-  document.getElementById('cekId').value = oid;
-  poll(oid);
-}
-function cekOrderManual(id){ document.getElementById('cekId').value=id; cekOrder(); }
-
-async function poll(id){
+function poll(oid){
   if(polling) clearInterval(polling);
-  polling = setInterval(async()=>{
+  polling = setInterval(async ()=>{
     try{
-      const r = await fetch(API + '/api/order/' + id);
+      const r = await fetch(API + '/api/order/' + oid);
       const j = await r.json();
-      const el = document.getElementById('pollState');
-      if(j.activation_link){
-        clearInterval(polling);
-        document.getElementById('out').innerHTML = `
-          <div class="mt-2 bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-5 text-center">
-            <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center mx-auto text-white text-[20px]">✓</div>
-            <div class="mt-3 text-[12px] font-extrabold tracking-widest text-emerald-700">✅ LINK AKTIVASI SIAP</div>
-            <div class="mono text-[11px] text-zinc-500 mt-1">${j.id} • ${j.status}</div>
-            <a href="${j.activation_link}" target="_blank" class="mt-3 block mono text-[13px] font-bold break-all bg-white border rounded-xl p-3 text-emerald-700 hover:underline">${j.activation_link}</a>
-            <div class="mt-2 text-[12px] text-zinc-600">Klik link → Login Google kamu → Claim 18 Bulan. Simpan link ini!</div>
-            <div class="mt-3 flex gap-2 justify-center flex-wrap">
-              <button onclick="copyLink('${j.activation_link}')" class="px-4 py-2 rounded-full bg-emerald-600 text-white font-bold text-[12px]">Copy Link</button>
-              <a href="https://wa.me/${j.customer_wa}?text=${encodeURIComponent('Link aktivasi Google AI Pro Jio 18 Bulan kamu: ' + j.activation_link)}" target="_blank" class="px-4 py-2 rounded-full border bg-white font-bold text-[12px]">Kirim ke WA</a>
-              <a href="${j.activation_link}" target="_blank" class="px-4 py-2 rounded-full bg-zinc-900 text-white font-bold text-[12px]">Buka Link →</a>
+      const o = j.order;
+      if(o && ['COMPLETED', 'PAID', 'RIZPRO_PAID'].includes(o.status)){
+        if(o.activation_link){
+          clearInterval(polling);
+          document.getElementById('out').innerHTML = `
+            <div class="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl text-center">
+              <div class="text-[32px]">🎉</div>
+              <h3 class="text-[18px] font-extrabold text-emerald-800 mt-2">Pesanan Selesai!</h3>
+              <p class="text-[12px] text-emerald-600 mt-1">Aktivasi akun Google Gemini Pro kamu sekarang:</p>
+              <a href="${o.activation_link}" target="_blank" class="mt-4 inline-block w-full py-3.5 rounded-xl bg-emerald-600 text-white font-extrabold text-[14px] hover:bg-emerald-700 transition shadow-md shadow-emerald-600/20">
+                🚀 Buka Link Aktivasi
+              </a>
+              <div class="mono bg-white p-3 rounded-xl border border-emerald-200 text-[11px] text-slate-600 break-all mt-3 select-all">
+                ${o.activation_link}
+              </div>
             </div>
-          </div>`;
-        return;
-      }
-      if(!el) return;
-      if(j.status === 'PENDING_VERIFICATION'){
-        el.innerHTML = `<span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span> Tunggu admin verif ya — admin sudah dapat notif Telegram`;
-        el.className = "text-[12px] font-bold text-amber-700";
-        // if we are still on WAITING view, switch to pending view
-        if(document.getElementById('paidBtn')) renderPending(id);
-      } else if(j.status === 'PAID'){
-        el.innerHTML = `<span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span> Pembayaran diverifikasi ✓ — bot lagi belanja di RizProStore...`;
-        el.className = "text-[12px] font-bold text-blue-600";
-      } else if(j.status === 'RIZPRO_PAID'){
-        el.innerHTML = `<span class="w-2 h-2 bg-violet-500 rounded-full animate-pulse"></span> RizProStore dibayar — menunggu link aktivasi...`;
-        el.className = "text-[12px] font-bold text-violet-600";
-      } else if(j.status === 'WAITING_PAYMENT'){
-        el.innerHTML = `<span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span> Menunggu kamu klik "Aku sudah bayar"...`;
+          `;
+        }
       }
     }catch(e){}
-  }, 3000);
+  }, 4000);
 }
-
-async function cekOrder(){
-  const id = document.getElementById('cekId').value.trim();
-  if(!id) return alert('Isi Order ID');
-  const out = document.getElementById('cekOut');
-  out.innerHTML = 'Loading...';
-  try{
-    const r = await fetch(API + '/api/order/' + id);
-    const j = await r.json();
-    if(j.error) throw new Error(j.error);
-    let statusBadge = j.status;
-    let desc = '';
-    if(j.status==='WAITING_PAYMENT') desc='menunggu kamu klik Aku sudah bayar';
-    else if(j.status==='PENDING_VERIFICATION') desc='⏳ tunggu admin verif ya — admin cek mutasi';
-    else if(j.status==='PAID') desc='✅ sudah diverifikasi, bot proses RizPro';
-    else if(j.status==='COMPLETED') desc='✅ link siap!';
-    out.innerHTML = `
-      <div class="bg-zinc-50 border rounded-xl p-3">
-        <div class="mono font-bold">${j.id}</div>
-        <div class="text-zinc-600">WA: ${j.customer_wa} • Status: <b>${j.status}</b> — ${desc}</div>
-        ${j.activation_link ? `<div class="mt-2"><a href="${j.activation_link}" target="_blank" class="mono text-emerald-700 font-bold break-all underline">${j.activation_link}</a></div><button onclick="copyLink('${j.activation_link}')" class="mt-2 px-3 py-1.5 rounded-full bg-zinc-900 text-white text-[12px] font-bold">Copy</button> <a href="${j.activation_link}" target="_blank" class="ml-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-[12px] font-bold">Buka</a>` : `<div class="text-[12px] text-zinc-500 mt-2">${desc}</div>
-        ${j.status==='PENDING_VERIFICATION' ? `<div class="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-2 text-[12px] text-amber-800 font-semibold">⏳ Tunggu admin verif ya — akan diproses 1-5 menit</div>` : ``}
-        ${j.status==='WAITING_PAYMENT' ? `<button onclick="confirmPayment('${j.id}'); document.getElementById('cekId').value='${j.id}'" class="mt-2 px-3 py-2 rounded-full bg-[#f7d64a] border border-yellow-400 font-bold text-[12px]">✅ Aku sudah bayar</button>` : ``}`}
-      </div>`;
-    if(!j.activation_link) poll(id);
-    // juga tampilkan di atas kalau cek dari bawah
-    if(j.status==='PENDING_VERIFICATION' && document.getElementById('out').classList.contains('hidden')){
-      renderPending(j.id);
-    }
-  }catch(e){ out.innerHTML = `<span class="text-red-600">Error: ${e.message}</span>`; }
-}
-
-function copyLink(t){ navigator.clipboard.writeText(t); alert('Link dicopy!'); }
-function resetForm(){
-  if(polling) clearInterval(polling);
-  document.getElementById('formBox').classList.remove('hidden');
-  document.getElementById('out').classList.add('hidden');
-  document.getElementById('out').innerHTML='';
-}
-document.getElementById('cekBtn').addEventListener('click', ()=> setTimeout(()=>document.getElementById('cekId').focus(),100));
 </script>
 </body>
 </html>
