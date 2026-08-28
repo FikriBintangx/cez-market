@@ -1,0 +1,27 @@
+app = "rizpro-dropship-api"
+primary_region = "sin" # Singapore (paling dekat & cepat untuk Indonesia)
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "4000"
+  BACKEND_URL = "https://rizpro-dropship-api.fly.dev"
+  RIZPRO_BASE_URL = "https://www.rizprostore.my.id"
+  RIZPRO_PRODUCT_ID = "gemini"
+  RIZPRO_VARIANT_NAME = "AKUN PRIVAT"
+  HARGA_JUAL = "35000"
+  HARGA_KULAK = "25000"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_stop_machines = false  # Penting: bot & backend harus tetap standby 24/7
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1

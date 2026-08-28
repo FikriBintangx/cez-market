@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — GeminiPro Store</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>*{font-family:Inter,sans-serif}.mono{font-family:'JetBrains Mono',monospace}</style>
+</head>
+<body class="bg-[#fbf8e8] text-zinc-900">
+<nav class="sticky top-0 z-50 bg-zinc-900 text-white">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 h-[56px] flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-yellow-300 text-zinc-900 flex items-center justify-center font-extrabold">G</div>
+      <div><div class="font-extrabold text-[14px] leading-none">GeminiPro Admin</div><div class="text-[10px] tracking-widest text-zinc-400">RIZPRO DROPSHIP • OPSI A</div></div>
+      <span id="liveDot" class="ml-2 px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[11px] font-bold">● LIVE</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="index.html" class="text-[13px] font-semibold px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20">← Lihat Store</a>
+      <button onclick="load()" class="text-[13px] font-bold bg-yellow-300 text-zinc-900 px-4 py-1.5 rounded-full">Refresh</button>
+    </div>
+  </div>
+</nav>
+
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 py-6">
+  <!-- STATS -->
+  <div class="grid grid-cols-2 lg:grid-cols-6 gap-3">
+    <div class="bg-white rounded-2xl border p-4"><div class="text-[11px] tracking-widest font-bold text-zinc-400">TOTAL ORDER</div><div id="s_total" class="text-[28px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-zinc-500">semua status</div></div>
+    <div class="bg-white rounded-2xl border p-4"><div class="text-[11px] tracking-widest font-bold text-amber-600">WAITING PAYMENT</div><div id="s_wait" class="text-[28px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-zinc-500">belum bayar QRIS</div></div>
+    <div class="bg-amber-50 rounded-2xl border border-amber-300 p-4"><div class="text-[11px] tracking-widest font-bold text-amber-700">⏳ PENDING VERIF</div><div id="s_pending" class="text-[28px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-amber-700">tunggu admin verif</div></div>
+    <div class="bg-white rounded-2xl border p-4"><div class="text-[11px] tracking-widest font-bold text-blue-600">PAID</div><div id="s_paid" class="text-[28px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-zinc-500">bot proses RizPro</div></div>
+    <div class="bg-white rounded-2xl border p-4"><div class="text-[11px] tracking-widest font-bold text-emerald-600">COMPLETED</div><div id="s_done" class="text-[28px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-zinc-500">link terkirim</div></div>
+    <div class="bg-zinc-900 text-white rounded-2xl p-4"><div class="text-[11px] tracking-widest font-bold text-zinc-400">EST. REVENUE</div><div id="s_rev" class="text-[24px] font-extrabold leading-none mt-1">—</div><div class="text-[11px] text-zinc-400">35K × completed+paid</div></div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="mt-5 bg-white rounded-2xl border p-4 flex flex-wrap gap-3 items-center justify-between">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-[12px] font-bold">Filter:</span>
+      <select id="f_status" onchange="load()" class="px-3 py-2 rounded-full border bg-zinc-50 text-[13px] font-semibold">
+        <option value="">Semua status</option>
+        <option value="WAITING_PAYMENT">WAITING_PAYMENT</option>
+        <option value="PENDING_VERIFICATION">PENDING_VERIFICATION ⏳</option>
+        <option value="PAID">PAID</option>
+        <option value="RIZPRO_PAID">RIZPRO_PAID</option>
+        <option value="COMPLETED">COMPLETED</option>
+      </select>
+      <input id="f_search" oninput="filterSearch()" placeholder="Cari Order ID / WA..." class="px-3 py-2 rounded-full border bg-zinc-50 text-[13px] w-[220px]">
+      <button onclick="toggleAuto()" id="autoBtn" class="px-3 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-[12px] font-bold">Auto-refresh: ON (5s)</button>
+    </div>
+    <div class="flex items-center gap-2">
+      <input id="apiUrl" value="http://localhost:4000" class="mono text-[11px] px-2 py-1.5 rounded-lg border bg-zinc-50 w-[180px]" title="Backend URL">
+      <input id="botUrl" value="http://localhost:3001" class="mono text-[11px] px-2 py-1.5 rounded-lg border bg-zinc-50 w-[180px]" title="Bot URL">
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="mt-4 bg-white rounded-2xl border overflow-hidden">
+    <div class="px-4 py-3 border-b flex items-center justify-between bg-zinc-50">
+      <div class="font-extrabold text-[13px]">Daftar Order — <span id="count" class="text-zinc-500">0</span></div>
+      <div class="text-[11px] text-zinc-500">Klik Order ID untuk detail • Tombol aksi di kanan</div>
+    </div>
+    <div class="overflow-auto">
+      <table class="w-full text-[13px]">
+        <thead class="bg-zinc-900 text-white text-[11px] tracking-widest">
+          <tr>
+            <th class="text-left px-3 py-2.5">ORDER</th>
+            <th class="text-left px-3 py-2.5">CUSTOMER</th>
+            <th class="text-left px-3 py-2.5">STATUS</th>
+            <th class="text-left px-3 py-2.5">LINK AKTIVASI</th>
+            <th class="text-right px-3 py-2.5">AKSI</th>
+          </tr>
+        </thead>
+        <tbody id="tbody" class="divide-y"></tbody>
+      </table>
+    </div>
+    <div id="empty" class="hidden p-10 text-center text-zinc-500">Belum ada order. Coba bikin order di store dulu.</div>
+  </div>
+
+  <div class="mt-3 text-[11px] text-zinc-500">
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-[12px] leading-relaxed">
+      <b>Flow baru (verifikasi manual):</b> Customer klik <b>"Aku sudah bayar"</b> → status jadi <b>PENDING_VERIFICATION ⏳</b> → kamu dapat notif Telegram dengan tombol <b>✅ Approve / ❌ Reject</b> → Approve langsung trigger bot ke RizPro. Bisa juga verifikasi di sini via tombol di tabel.<br>
+      <span class="text-zinc-500">Legacy: tombol Simulasi PAID masih ada untuk testing cepat tanpa verif.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+let auto = true, timer=null, cache=[];
+function API(){ return document.getElementById('apiUrl').value.replace(/\/$/,'')}
+function BOT(){ return document.getElementById('botUrl').value.replace(/\/$/,'')}
+
+async function load(){
+  const status = document.getElementById('f_status').value;
+  const url = API() + '/api/orders' + (status ? '?status='+status : '');
+  try{
+    const r = await fetch(url);
+    const j = await r.json();
+    cache = j.orders || [];
+    document.getElementById('s_total').textContent = j.stats.total;
+    document.getElementById('s_wait').textContent = j.stats.waiting;
+    if(document.getElementById('s_pending')) document.getElementById('s_pending').textContent = j.stats.pending ?? 0;
+    document.getElementById('s_paid').textContent = j.stats.paid;
+    document.getElementById('s_done').textContent = j.stats.completed;
+    document.getElementById('s_rev').textContent = 'Rp ' + Number(j.stats.revenue).toLocaleString('id-ID');
+    render(cache);
+  }catch(e){
+    document.getElementById('tbody').innerHTML = `<tr><td colspan=5 class="p-4 text-red-600">Gagal load ${API()}: ${e.message} — pastikan backend jalan: cd backend && npm run dev</td></tr>`;
+  }
+}
+
+function render(rows){
+  const tb = document.getElementById('tbody');
+  document.getElementById('count').textContent = rows.length;
+  document.getElementById('empty').classList.toggle('hidden', rows.length!==0);
+  if(rows.length===0){ tb.innerHTML=''; return; }
+  tb.innerHTML = rows.map(o=>{
+    let badge = 'bg-zinc-100 text-zinc-600 border-zinc-200';
+    if(o.status==='COMPLETED') badge='bg-emerald-100 text-emerald-700 border-emerald-200';
+    else if(o.status==='PAID') badge='bg-blue-100 text-blue-700 border-blue-200';
+    else if(o.status==='PENDING_VERIFICATION') badge='bg-amber-100 text-amber-700 border-amber-300 animate-pulse';
+    else if(o.status==='RIZPRO_PAID') badge='bg-violet-100 text-violet-700 border-violet-200';
+    else if(o.status==='WAITING_PAYMENT') badge='bg-amber-100 text-amber-700 border-amber-200';
+    const link = o.activation_link ? `<a href="${o.activation_link}" target="_blank" class="mono text-[11px] break-all text-emerald-700 underline">${o.activation_link}</a><br><button onclick="copy('${o.activation_link}')" class="mt-1 px-2 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-bold">Copy</button> <a href="https://wa.me/${o.customer_wa}?text=${encodeURIComponent('Link aktivasi kamu: '+o.activation_link)}" target="_blank" class="px-2 py-1 rounded-full border bg-white text-[10px] font-bold">WA</a>` : `<span class="text-zinc-400 text-[11px]">— belum ada —</span>`;
+    let actions = '';
+    if(o.status==='PENDING_VERIFICATION'){
+      actions = `<button onclick="verify('${o.id}','approve')" class="px-3 py-1.5 rounded-full bg-emerald-500 text-white text-[11px] font-extrabold hover:bg-emerald-600">✅ Approve</button> <button onclick="verify('${o.id}','reject')" class="px-3 py-1.5 rounded-full bg-white border border-red-200 text-red-600 text-[11px] font-bold hover:bg-red-50">❌ Reject</button><br>`;
+    } else if(o.status==='WAITING_PAYMENT'){
+      actions = `<span class="text-[10px] text-zinc-400">Menunggu customer klik<br>"Aku sudah bayar"</span><br>`;
+    }
+    return `<tr class="hover:bg-zinc-50 ${o.status==='PENDING_VERIFICATION' ? 'bg-amber-50/60' : ''}">
+      <td class="px-3 py-3 align-top"><div class="mono font-bold text-[12px]">${o.id}</div><div class="text-[11px] text-zinc-500">${new Date(o.created_at).toLocaleString('id-ID')}</div><div class="text-[10px] mono text-zinc-400">${o.tripay_ref||''}</div></td>
+      <td class="px-3 py-3 align-top"><div class="font-bold">${o.customer_wa||'-'}</div><div class="text-zinc-500 text-[11px]">${o.customer_email||''}</div></td>
+      <td class="px-3 py-3 align-top"><span class="px-2 py-1 rounded-full border text-[11px] font-bold ${badge}">${o.status}</span><div class="mono text-[10px] text-zinc-400 mt-1">${o.rizpro_qr_string||''}</div></td>
+      <td class="px-3 py-3 align-top max-w-[320px]">${link}</td>
+      <td class="px-3 py-3 align-top text-right whitespace-nowrap">
+        ${actions}
+        <button onclick="simulate('${o.id}')" class="mt-1 px-2.5 py-1 rounded-full bg-amber-300 border border-amber-400 text-zinc-900 text-[10px] font-bold hover:brightness-95">Simulasi PAID</button>
+        <button onclick="triggerBot('${o.id}')" class="px-2.5 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-bold hover:bg-black">Trigger Bot</button>
+        <button onclick="del('${o.id}')" class="px-2 py-1 rounded-full border bg-white text-[10px] font-bold text-red-600">Hapus</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function filterSearch(){
+  const q = document.getElementById('f_search').value.toLowerCase();
+  if(!q) return render(cache);
+  render(cache.filter(o=> (o.id+o.customer_wa+o.customer_email+(o.status||'')).toLowerCase().includes(q)));
+}
+
+async function simulate(id){
+  if(!confirm('Simulasi PAID untuk '+id+'? Ini akan trigger bot juga.')) return;
+  const r = await fetch(API()+'/api/simulate-paid', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:'orderId='+encodeURIComponent(id)});
+  const t = await r.text();
+  alert(t.slice(0,300)); load();
+}
+async function verify(id, action){
+  if(!confirm((action==='approve'?'Approve':'Reject')+' order '+id+'?')) return;
+  const r = await fetch(API()+'/api/admin/verify', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({orderId:id, action})});
+  const j = await r.json();
+  alert((j.msg||j.error||'Done').slice(0,300));
+  load();
+}
+async function triggerBot(id){
+  try{
+    const r = await fetch(BOT()+'/bot/order', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({orderId:id})});
+    const j = await r.json();
+    alert('Bot: '+JSON.stringify(j).slice(0,300));
+  }catch(e){ alert('Bot gagal: '+e.message+' — pastikan cd bot && npm start (port 3001)'); }
+}
+async function del(id){
+  if(!confirm('Hapus '+id+'?')) return;
+  await fetch(API()+'/api/order/'+id, {method:'DELETE'});
+  load();
+}
+function copy(t){ navigator.clipboard.writeText(t); alert('Copied'); }
+function toggleAuto(){
+  auto=!auto;
+  document.getElementById('autoBtn').textContent = auto ? 'Auto-refresh: ON (5s)' : 'Auto-refresh: OFF';
+  document.getElementById('autoBtn').className = auto ? 'px-3 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-[12px] font-bold' : 'px-3 py-2 rounded-full bg-zinc-100 border text-zinc-600 text-[12px] font-bold';
+  setup();
+}
+function setup(){
+  if(timer) clearInterval(timer);
+  if(auto) timer=setInterval(load,5000);
+}
+load(); setup();
+</script>
+</body>
+</html>
