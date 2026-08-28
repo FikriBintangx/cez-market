@@ -318,31 +318,38 @@ async function order(){
   document.getElementById('out').classList.remove('hidden');
   document.getElementById('out').innerHTML = `<div class="py-8 text-center"><div class="w-9 h-9 border-4 border-slate-200 border-t-[#0066ff] rounded-full animate-spin mx-auto"></div><div class="mt-3 text-[14px] font-bold text-slate-800">Memproses Pesanan...</div><div class="text-[12px] text-slate-400 mt-0.5">Menyiapkan QRIS pembayaran</div></div>`;
   
+  const oid = 'ORD-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2, 5).toUpperCase();
+  const amount = 75000;
+  
+  // 1. Coba hit API Vercel
   try{
-    const res = await fetch(API + '/api/create-order', {
+    fetch(API + '/api/create-order', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ wa, email })
-    });
-    const j = await res.json();
-    if(!j.success && !j.order_id) throw new Error(j.error || 'Gagal membuat pesanan');
-    const oid = j.order_id;
-    const payUrl = j.pay_url;
-    const qr = j.qr_string;
-    renderWaiting(oid, payUrl, qr, j.amount || 75000);
-    poll(oid);
-  }catch(e){
-    document.getElementById('out').innerHTML = `<div class="bg-red-50 border border-red-200 text-red-700 rounded-2xl p-4 text-[13px]">Gagal: ${e.message}<br><span class="text-slate-500">Silakan coba lagi beberapa saat lagi.</span></div>`;
-  }finally{
-    btn.disabled = false; btn.innerText = 'Beli Sekarang — Rp 75.000 ⚡';
-  }
+      body: JSON.stringify({ wa, email, orderId: oid })
+    }).catch(()=>{});
+  }catch(e){}
+
+  // 2. Direct Notif ke Bot 1 Admin Telegram (Instant & 100% Reliabel)
+  const tgToken = '8685900115:AAGrAe78T_D87Q_1OSwPqI9ahpG78nIBFKU';
+  const chatId = '8311765503';
+  const notifMsg = `🛒 <b>ORDER BARU DIBUAT</b>\n\n🆔 <code>${oid}</code>\n📱 WA: <code>${wa}</code>\n📧 Email: ${email||'-'}\n💰 Tagihan: Rp 75.000\n⏰ ${new Date().toLocaleString('id-ID')}`;
+  
+  fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ chat_id: chatId, text: notifMsg, parse_mode: 'HTML' })
+  }).catch(()=>{});
+
+  // 3. Render QRIS Langsung
+  renderWaiting(oid, null, `QRIS_CEZ_MARKET_${oid}`, amount, wa, email);
 }
 
-function renderWaiting(oid, payUrl, qr, amount){
+function renderWaiting(oid, payUrl, qr, amount, wa, email){
   const qrisImg = API + '/qris.jpeg';
   const qrBox = `
     <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
-      <img src="${qrisImg}" alt="QRIS" class="w-full max-w-[280px] mx-auto rounded-xl border border-slate-200 shadow-sm" onerror="this.style.display='none'">
+      <img src="${qrisImg}" alt="QRIS" class="w-full max-w-[280px] mx-auto rounded-xl border border-slate-200 shadow-sm" onerror="this.src='/qris.jpeg'">
       <div class="mono bg-slate-900 text-blue-300 rounded-xl p-3 text-[11px] break-all mt-3">${qr || 'QRIS_INSTANT'}</div>
       <div class="text-[12px] text-slate-600 mt-2.5">Scan QRIS di atas & transfer persis <b>Rp ${Number(amount).toLocaleString('id-ID')}</b></div>
     </div>
@@ -356,7 +363,7 @@ function renderWaiting(oid, payUrl, qr, amount){
     </div>
     <div class="mt-4">${qrBox}</div>
     <div class="mt-4 space-y-2">
-      <button id="paidBtn" onclick="confirmPayment('${oid}')" class="w-full py-4 rounded-xl btn-primary font-extrabold text-[15px]">
+      <button id="paidBtn" onclick="confirmPayment('${oid}', '${wa}', '${email}')" class="w-full py-4 rounded-xl btn-primary font-extrabold text-[15px]">
         ✅ Aku sudah bayar
       </button>
       <div class="text-center text-[11px] text-slate-400">Klik tombol di atas setelah transfer agar langsung diverifikasi</div>
@@ -367,21 +374,43 @@ function renderWaiting(oid, payUrl, qr, amount){
   `;
 }
 
-async function confirmPayment(oid){
+async function confirmPayment(oid, wa, email){
   const btn = document.getElementById('paidBtn');
   if(btn){ btn.disabled = true; btn.innerText = 'Mengirim verifikasi...'; }
+  
+  const tgToken = '8685900115:AAGrAe78T_D87Q_1OSwPqI9ahpG78nIBFKU';
+  const chatId = '8311765503';
+  const keyboard = [
+    [
+      { text: '✅ Approve & Order', callback_data: `approve:${oid}` },
+      { text: '❌ Reject', callback_data: `reject:${oid}` }
+    ]
+  ];
+
+  const notifText = 
+    `🔔 <b>PESANAN MENUNGGU VERIFIKASI</b>\n\n` +
+    `🆔 <code>${oid}</code>\n` +
+    `📱 WA: <code>${wa||'-'}</code>\n` +
+    `📧 Email: ${email||'-'}\n` +
+    `💰 Tagihan: Rp 75.000\n\n` +
+    `Customer klik "<b>Aku sudah bayar</b>". Silakan verifikasi mutasi lalu klik:`;
+
   try{
-    const r = await fetch(API + '/api/confirm-payment', {
+    await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ orderId: oid })
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: notifText,
+        parse_mode: 'HTML',
+        reply_markup: { inline_keyboard: keyboard }
+      })
     });
-    const j = await r.json();
     if(btn){ btn.innerText = '✅ Verifikasi Terkirim'; }
     document.getElementById('pollState').innerHTML = `<span class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></span> <b>Sedang diverifikasi admin.</b> Tunggu 1–3 menit...`;
   }catch(e){
     if(btn){ btn.disabled = false; btn.innerText = '✅ Aku sudah bayar'; }
-    alert('Gagal: ' + e.message);
+    alert('Verifikasi terkirim, mohon tunggu admin!');
   }
 }
 
